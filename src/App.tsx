@@ -60,10 +60,26 @@ function Layout() {
 
       <ul>
         <li>
-          <Link to="/">Public Page</Link>
+          <Link to="/">이거 못쓸듯... 라우터 링크 사용 Public Page</Link>
         </li>
         <li>
-          <Link to="/protected">Protected Page</Link>
+          <Link to="/protected">
+            이거 못쓸듯... 라우터 링크 사용 Protected Page
+          </Link>
+        </li>
+        <li>
+          <Link to="/testfolder">
+            이거 못쓸듯... 라우터 링크 사용 testfolder Page
+          </Link>
+        </li>
+        <li>
+          <a href="/">라우터 링크 미사용 Public Page</a>
+        </li>
+        <li>
+          <a href="/protected">라우터 링크 미사용 Protected Page</a>
+        </li>
+        <li>
+          <a href="/testfolder">라우터 링크 미사용 testfolder Page</a>
         </li>
       </ul>
 
@@ -171,12 +187,23 @@ function LoginPage() {
     <div>
       <p>You must log in to view the page at {from}</p>
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <label>
           Username: <input name="username" type="text" />
         </label>{" "}
         <button type="submit">Login</button>
-      </form>
+      </form> */}
+
+      <label title={window.testState?.login_id_type_text}>
+        {window.testState?.["form.member_id"]}
+      </label>
+      <label title="비밀번호">{window.testState?.["form.member_passwd"]}</label>
+      <a
+        href="#none"
+        onClick={() => eval(window.testState?.["form.action_func_login"])}
+      >
+        로그인
+      </a>
     </div>
   );
 }
