@@ -194,7 +194,7 @@ function LoginPage() {
         <button type="submit">Login</button>
       </form> */}
 
-      <label title={window.testState?.login_id_type_text}>
+      {/* <label title={window.testState?.login_id_type_text}>
         {window.testState?.["form.member_id"]}
       </label>
       <label title="비밀번호">{window.testState?.["form.member_passwd"]}</label>
@@ -203,7 +203,7 @@ function LoginPage() {
         onClick={() => eval(window.testState?.["form.action_func_login"])}
       >
         로그인
-      </a>
+      </a> */}
     </div>
   );
 }
@@ -217,5 +217,29 @@ function ProtectedPage() {
 }
 
 function TestFolerPage() {
-  return <h3>testfolder</h3>;
+  return (
+    <div>
+      <h3>testfolder</h3>
+      <label
+        title={window.testState?.login_id_type_text}
+        dangerouslySetInnerHTML={{
+          __html: window.testState?.["form.member_id"],
+        }}
+      />
+      <label
+        title="비밀번호"
+        dangerouslySetInnerHTML={{
+          __html: window.testState?.["form.member_passwd"],
+        }}
+      />
+      <a
+        href="#none"
+        onClick={() =>
+          eval(`(function(){${window.testState?.["$action_func_login"]}})();`)
+        }
+      >
+        로그인
+      </a>
+    </div>
+  );
 }
